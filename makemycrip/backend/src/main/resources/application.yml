@@ -5,7 +5,7 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/makemycrip}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 20
@@ -68,7 +68,7 @@ spring:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
     username: ${MAIL_USERNAME:support@makemycrip.com}
-    password: ${MAIL_PASSWORD:yjqxrsrsg}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -82,8 +82,8 @@ spring:
       client:
         registration:
           google:
-            client-id: ${GOOGLE_CLIENT_ID:2532777-bue761a367vpam.apps.googleusercontent.com}
-            client-secret: ${GOOGLE_CLIENT_SECRET:GOPX-tDUljlWnNZINW1d}
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             scope: email, profile
 
   thymeleaf:
@@ -104,14 +104,14 @@ app:
   kafka:
     enabled: false   # Set to true when Kafka broker is running
   jwt:
-    secret: ${JWT_SECRET:makemycripSecretKey2024MakeMyCripSecretKey2024MakeMyCripSecretKey2024}
+    secret: ${JWT_SECRET}
     access-expiration-ms: ${JWT_ACCESS_EXPIRY_MS:900000}
     refresh-expiration-ms: ${JWT_REFRESH_EXPIRY_MS:2592000000}
   encryption:
-    key: ${ENCRYPTION_KEY:base64EncodedAES256KeyHere3232323232}
+    key: ${ENCRYPTION_KEY}
   stripe:
-    secret-key: ${STRIPE_SECRET_KEY:sk_test_J1DHOQCJ040WOk3o3f}
-    webhook-secret: ${STRIPE_WEBHOOK_SECRET:whsec_0df969fc49bc0c6212a3}
+    secret-key: ${STRIPE_SECRET_KEY}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET}
     publishable-key: ${STRIPE_PUBLISHABLE_KEY:pk_test_5eIwAAO86jUNBnGGl9RI}
   frontend:
     url: ${FRONTEND_URL:http://localhost:5173}
