@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Successful</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #2e7d32, #1b5e20); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .amount-highlight { text-align: center; margin: 24px 0; }
+    .amount-highlight .amount { font-size: 42px; font-weight: 700; color: #2e7d32; }
+    .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .info-row:last-child { border-bottom: none; }
+    .label { color: #666; }
+    .value { font-weight: 500; color: #1a1a1a; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>&#10004; Payment Successful</h1>
+  </div>
+  <div class="body">
+    <p>Dear <strong th:text="${guestName}">Guest</strong>,</p>
+    <p>Your payment has been received successfully.</p>
+    <div class="amount-highlight">
+      <div class="amount" th:text="'₹' + ${amount}">₹5,900</div>
+      <div style="color:#666;font-size:13px;margin-top:4px;">Amount Paid</div>
+    </div>
+    <div class="info-row"><span class="label">Booking Reference</span><span class="value" th:text="${bookingRef}"></span></div>
+    <div class="info-row"><span class="label">Transaction ID</span><span class="value" th:text="${transactionId}"></span></div>
+    <div class="info-row"><span class="label">Payment Date</span><span class="value" th:text="${paidAt}"></span></div>
+    <div class="info-row"><span class="label">Hotel</span><span class="value" th:text="${hotelName}"></span></div>
+    <div class="info-row"><span class="label">Check-in</span><span class="value" th:text="${checkIn}"></span></div>
+    <div class="info-row"><span class="label">Check-out</span><span class="value" th:text="${checkOut}"></span></div>
+    <p style="margin-top:24px;font-size:13px;color:#666;">Your booking confirmation has been sent separately. Keep this email for your records.</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

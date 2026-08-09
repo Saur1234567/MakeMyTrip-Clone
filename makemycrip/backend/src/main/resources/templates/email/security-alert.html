@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Security Alert</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: #b71c1c; padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .alert-box { background: #ffebee; border: 2px solid #e53935; border-radius: 8px; padding: 16px; margin: 20px 0; }
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li { counter-increment: step; padding: 10px 0 10px 40px; position: relative; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
+    .steps li:before { content: counter(step); position: absolute; left: 0; top: 8px; background: #e53935; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700; }
+    .cta { text-align: center; margin: 24px 0; }
+    .btn { display: inline-block; background: #e53935; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#128680; Security Alert</h1></div>
+  <div class="body">
+    <p>Hi <strong th:text="${firstName}">there</strong>,</p>
+    <div class="alert-box">
+      <strong>Alert:</strong> <span th:text="${alertMessage}">Suspicious activity detected on your account.</span>
+    </div>
+    <p><strong>When:</strong> <span th:text="${alertTime}">Today</span> &bull; <strong>From:</strong> <span th:text="${ipAddress}">Unknown location</span></p>
+    <h3>Immediate Actions to Take</h3>
+    <ol class="steps">
+      <li>Change your password immediately</li>
+      <li>Review and revoke all active sessions</li>
+      <li>Enable two-factor authentication</li>
+      <li>Check your recent booking activity</li>
+    </ol>
+    <div class="cta">
+      <a th:href="${secureAccountUrl}" class="btn">Secure My Account Now</a>
+    </div>
+    <p style="font-size:13px;color:#666;">Contact support at <a href="mailto:security@makemycrip.com">security@makemycrip.com</a> if you need assistance.</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

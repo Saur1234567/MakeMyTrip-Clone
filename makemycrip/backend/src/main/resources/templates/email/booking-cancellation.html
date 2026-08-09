@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Cancelled</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #e53935, #b71c1c); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .header p { color: #ffcdd2; margin: 8px 0 0; }
+    .body { padding: 32px 24px; }
+    .info-box { background: #fff3e0; border: 1px solid #ffe0b2; border-radius: 8px; padding: 16px; margin: 20px 0; }
+    .refund-box { background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 8px; padding: 16px; margin: 20px 0; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Booking Cancelled</h1>
+    <p th:text="'Booking Reference: ' + ${bookingRef}">Booking Reference: MMC-XXXXXX</p>
+  </div>
+  <div class="body">
+    <p>Dear <strong th:text="${guestName}">Guest</strong>,</p>
+    <p>Your booking at <strong th:text="${hotelName}">Hotel Name</strong> has been cancelled.</p>
+
+    <div class="info-box">
+      <strong>Cancellation Details</strong><br/>
+      <table style="width:100%;margin-top:10px;font-size:14px;">
+        <tr><td style="color:#666;">Booking Ref</td><td th:text="${bookingRef}"></td></tr>
+        <tr><td style="color:#666;">Cancelled On</td><td th:text="${cancelledAt}"></td></tr>
+        <tr><td style="color:#666;">Reason</td><td th:text="${reason}">Guest requested</td></tr>
+      </table>
+    </div>
+
+    <div class="refund-box" th:if="${refundAmount != null and refundAmount != '0'}">
+      <strong>Refund Information</strong><br/>
+      <p style="margin:8px 0;font-size:14px;">A refund of <strong th:text="'₹' + ${refundAmount}">₹XXXX</strong> will be credited to your original payment method within 5-7 business days.</p>
+    </div>
+
+    <p style="font-size:13px;color:#666;">Questions? Contact us at <a href="mailto:support@makemycrip.com">support@makemycrip.com</a></p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

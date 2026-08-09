@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upcoming Booking Reminder</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #00838f, #006064); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .hotel-card { background: #e0f7fa; border-radius: 8px; padding: 20px; margin: 20px 0; }
+    .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #b2ebf2; font-size: 14px; }
+    .info-row:last-child { border-bottom: none; }
+    .cta { text-align: center; margin: 28px 0; }
+    .btn { display: inline-block; background: #00838f; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#128337; Upcoming Stay Reminder</h1></div>
+  <div class="body">
+    <p>Hi <strong th:text="${guestName}">Guest</strong>,</p>
+    <p>Just a reminder — your stay is coming up in <strong th:text="${daysUntil}">3</strong> days!</p>
+    <div class="hotel-card">
+      <h3 style="margin:0 0 12px;" th:text="${hotelName}">Hotel Name</h3>
+      <div class="info-row"><span style="color:#006064;">Booking Ref</span><span th:text="${bookingRef}"></span></div>
+      <div class="info-row"><span style="color:#006064;">Check-in</span><span th:text="${checkIn}"></span></div>
+      <div class="info-row"><span style="color:#006064;">Check-out</span><span th:text="${checkOut}"></span></div>
+      <div class="info-row"><span style="color:#006064;">Room</span><span th:text="${roomType}"></span></div>
+    </div>
+    <div class="cta">
+      <a th:href="${bookingUrl}" class="btn">View Booking Details</a>
+    </div>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+=== Step 1: Login ===
+Login OK. Token prefix: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiO...
+
+=== Step 2: Get a valid roomTypeId ===
+RoomTypeId: 11000000-0000-0000-0000-000000000001
+
+=== Step 3: Initiate Booking ===
+Booking Reference: MMC47842363
+PaymentIntent ID: pi_3TTyfPBNmYKYnKhN31DLBa0N
+ClientSecret present: True
+
+=== Step 4: Create PaymentMethod from tok_visa, then confirm PaymentIntent ===
+PaymentMethod created: pm_1TTyfQBNmYKYnKhNZdheRwjm
+Stripe PaymentIntent status: succeeded
+
+=== Step 5: Confirm booking on backend ===
+Backend confirm response: Success
+
+=== Step 6: Verify booking status ===
+Booking status: CONFIRMED
+Hotel: The Grand Taj Palace
+Total: 22386.40
+
+ƒo. END-TO-END TEST PASSED! Booking MMC47842363 is CONFIRMED.

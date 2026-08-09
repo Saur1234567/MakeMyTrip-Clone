@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Offer from MakeMyCrip</title>
+  <style>
+    body { margin: 0; padding: 0; background: #f3f4f6; font-family: 'Segoe UI', Arial, sans-serif; }
+    .wrapper { max-width: 600px; margin: 32px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .header { background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); padding: 32px 40px; text-align: center; }
+    .header h1 { color: #ffffff; margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+    .header span { color: #f97316; }
+    .badge { display: inline-block; background: #f97316; color: #fff; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .body { padding: 36px 40px; }
+    .greeting { font-size: 18px; color: #1e293b; font-weight: 600; margin-bottom: 12px; }
+    .message { font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 28px; }
+    .coupon-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px dashed #f59e0b; border-radius: 10px; padding: 20px 24px; text-align: center; margin-bottom: 28px; }
+    .coupon-label { font-size: 12px; color: #92400e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .coupon-code { font-size: 28px; font-weight: 900; color: #92400e; letter-spacing: 4px; font-family: monospace; }
+    .coupon-hint { font-size: 12px; color: #b45309; margin-top: 6px; }
+    .cta-btn { display: block; width: fit-content; margin: 0 auto 28px; background: #f97316; color: #ffffff; text-decoration: none; padding: 14px 36px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; }
+    .divider { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+    .footer { background: #f8fafc; padding: 20px 40px; text-align: center; }
+    .footer p { font-size: 12px; color: #94a3b8; margin: 4px 0; }
+    .footer a { color: #3b82f6; text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Make<span>My</span>Crip</h1>
+    <div class="badge">🎉 Exclusive Offer</div>
+  </div>
+  <div class="body">
+    <div class="greeting" th:text="'Hi ' + ${name} + '!'">Hi there!</div>
+    <div class="message" th:utext="${body}">
+      We have an exclusive offer just for you. Don't miss out on this limited-time deal!
+    </div>
+
+    <div class="coupon-box" th:if="${discountCode != null and !#strings.isEmpty(discountCode)}">
+      <div class="coupon-label">Your Exclusive Coupon Code</div>
+      <div class="coupon-code" th:text="${discountCode}">SAVE20</div>
+      <div class="coupon-hint">Apply at checkout to redeem your discount</div>
+    </div>
+
+    <a th:href="${ctaUrl}" th:text="${ctaText}" class="cta-btn" href="#">View Offer</a>
+
+    <hr class="divider" />
+    <p style="font-size:13px;color:#64748b;text-align:center;">
+      This offer is exclusively for you. Limited time only — don't miss it!
+    </p>
+  </div>
+  <div class="footer">
+    <p>© 2025 MakeMyCrip. All rights reserved.</p>
+    <p>You're receiving this because you have an account with us.</p>
+    <p><a href="#">Unsubscribe</a> · <a href="#">Privacy Policy</a></p>
+  </div>
+</div>
+</body>
+</html>

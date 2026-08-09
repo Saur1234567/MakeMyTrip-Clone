@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Complete Your Booking</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #1a73e8, #0d47a1); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .hotel-preview { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; margin: 20px 0; }
+    .hotel-preview-body { padding: 16px; }
+    .hotel-name { font-size: 18px; font-weight: 600; margin: 0 0 8px; }
+    .urgency { background: #fff3e0; border-radius: 4px; padding: 10px 14px; font-size: 13px; color: #e65100; margin: 16px 0; }
+    .cta { text-align: center; margin: 28px 0; }
+    .btn { display: inline-block; background: #1a73e8; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#128722; You Left Something Behind!</h1></div>
+  <div class="body">
+    <p>Hi <strong th:text="${firstName}">there</strong>,</p>
+    <p>You were so close! Your booking for <strong th:text="${hotelName}">Hotel Name</strong> is waiting to be confirmed.</p>
+    <div class="hotel-preview">
+      <div class="hotel-preview-body">
+        <div class="hotel-name" th:text="${hotelName}">Hotel Name</div>
+        <div style="font-size:13px;color:#666;" th:text="${checkIn + ' → ' + checkOut}">Check-in → Check-out</div>
+        <div style="font-size:13px;color:#666;margin-top:4px;" th:text="${roomType}">Room Type</div>
+        <div style="font-size:20px;font-weight:700;color:#1a73e8;margin-top:8px;" th:text="'₹' + ${amount}">₹5,000</div>
+      </div>
+    </div>
+    <div class="urgency">&#9888; Only <strong th:text="${roomsLeft}">3</strong> rooms left at this price!</div>
+    <div class="cta">
+      <a th:href="${bookingUrl}" class="btn">Complete My Booking</a>
+    </div>
+    <p style="font-size:12px;color:#aaa;text-align:center;">This offer expires in <strong th:text="${expiresIn}">2 hours</strong>. After that, prices may change.</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to MakeMyCrip</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #1a73e8, #0d47a1); padding: 40px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 28px; }
+    .header p { color: #c8d8f8; margin: 10px 0 0; font-size: 16px; }
+    .body { padding: 32px 24px; }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .feature-box { background: #f8faff; border-radius: 8px; padding: 16px; text-align: center; }
+    .feature-box .icon { font-size: 28px; margin-bottom: 8px; }
+    .feature-box h3 { margin: 0 0 6px; font-size: 14px; }
+    .feature-box p { margin: 0; font-size: 12px; color: #666; }
+    .cta { text-align: center; margin: 28px 0; }
+    .btn { display: inline-block; background: #1a73e8; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Welcome to MakeMyCrip!</h1>
+    <p>Your journey to amazing stays begins here</p>
+  </div>
+  <div class="body">
+    <p>Hi <strong th:text="${firstName}">there</strong>! &#127968;</p>
+    <p>We're thrilled to have you on board. MakeMyCrip helps you discover and book the best hotels across India.</p>
+
+    <div class="feature-grid">
+      <div class="feature-box">
+        <div class="icon">&#127968;</div>
+        <h3>1000+ Hotels</h3>
+        <p>Curated stays across top destinations</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">&#9733;</div>
+        <h3>Loyalty Rewards</h3>
+        <p>Earn points on every booking</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">&#128274;</div>
+        <h3>Secure Payments</h3>
+        <p>Powered by Stripe — bank-grade security</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">&#128222;</div>
+        <h3>24/7 Support</h3>
+        <p>We're always here to help you</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a th:href="${loginUrl}" class="btn">Start Exploring Hotels</a>
+    </div>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

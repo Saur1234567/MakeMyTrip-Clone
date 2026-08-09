@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Failed</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #c62828, #b71c1c); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .error-box { background: #ffebee; border-left: 4px solid #e53935; border-radius: 4px; padding: 16px; margin: 20px 0; }
+    .cta { text-align: center; margin: 28px 0; }
+    .btn { display: inline-block; background: #1a73e8; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#10008; Payment Failed</h1></div>
+  <div class="body">
+    <p>Dear <strong th:text="${guestName}">Guest</strong>,</p>
+    <p>Unfortunately, your payment for booking <strong th:text="${bookingRef}">MMC-XXXXXX</strong> could not be processed.</p>
+    <div class="error-box">
+      <strong>Reason:</strong> <span th:text="${failureReason}">Payment declined by bank</span>
+    </div>
+    <p>Don't worry — your booking is still reserved for a short time. Please retry your payment.</p>
+    <div class="cta">
+      <a th:href="${retryUrl}" class="btn">Retry Payment</a>
+    </div>
+    <p style="font-size:13px;color:#666;">If the issue persists, please contact your bank or try a different payment method. You can also reach us at <a href="mailto:support@makemycrip.com">support@makemycrip.com</a>.</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

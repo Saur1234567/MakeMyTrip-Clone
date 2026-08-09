@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Congratulations! Tier Upgrade</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #c79a25, #8B6914); padding: 40px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 28px; }
+    .tier-badge { display: inline-block; background: #fff; color: #c79a25; font-size: 22px; font-weight: 700; padding: 12px 28px; border-radius: 30px; margin: 16px 0; letter-spacing: 2px; }
+    .body { padding: 32px 24px; }
+    .benefits-list { list-style: none; padding: 0; margin: 20px 0; }
+    .benefits-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; }
+    .benefits-list li:before { content: "✦ "; color: #c79a25; font-weight: 700; }
+    .cta { text-align: center; margin: 28px 0; }
+    .btn { display: inline-block; background: linear-gradient(135deg, #c79a25, #8B6914); color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1>&#127881; Congratulations!</h1>
+    <div class="tier-badge" th:text="${newTier}">GOLD</div>
+    <p style="color:#ffe082;margin:0;">You've been upgraded!</p>
+  </div>
+  <div class="body">
+    <p>Dear <strong th:text="${firstName}">Guest</strong>,</p>
+    <p>Your loyalty has paid off! You've been upgraded to <strong th:text="${newTier}">GOLD</strong> tier. Welcome to a world of exclusive privileges.</p>
+    <h3>Your New Benefits</h3>
+    <ul class="benefits-list">
+      <li th:each="benefit : ${benefits}" th:text="${benefit}">Benefit item</li>
+    </ul>
+    <p>Your current loyalty points: <strong th:text="${totalPoints}">2,500</strong></p>
+    <div class="cta">
+      <a th:href="${exploreUrl}" class="btn">Explore Your Benefits</a>
+    </div>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

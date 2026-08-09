@@ -1,0 +1,33 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  define: {
+    global: 'globalThis',
+  },
+  optimizeDeps: {
+    include: ['sockjs-client', '@stomp/stompjs'],
+  },
+  server: {
+    port: 5173,
+    strictPort: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8081',
+        changeOrigin: true,
+      },
+      '/ws': {
+        target: 'http://localhost:8081',
+        changeOrigin: true,
+        ws: true,
+      },
+    },
+  },
+})

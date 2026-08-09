@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Device Login</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #37474f, #263238); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; }
+    .device-box { background: #f5f5f5; border-radius: 8px; padding: 16px; margin: 20px 0; }
+    .info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+    .warning { background: #fff3e0; border-left: 4px solid #f57c00; border-radius: 4px; padding: 12px 16px; margin: 20px 0; font-size: 13px; }
+    .cta { text-align: center; margin: 20px 0; }
+    .btn-danger { display: inline-block; background: #e53935; color: #fff; padding: 11px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#128274; New Login Detected</h1></div>
+  <div class="body">
+    <p>Hi <strong th:text="${firstName}">there</strong>,</p>
+    <p>We detected a new login to your MakeMyCrip account.</p>
+    <div class="device-box">
+      <div class="info-row"><span style="color:#666;">Device</span><span th:text="${deviceType}">Desktop</span></div>
+      <div class="info-row"><span style="color:#666;">Browser</span><span th:text="${browser}">Chrome</span></div>
+      <div class="info-row"><span style="color:#666;">Location</span><span th:text="${location}">Mumbai, India</span></div>
+      <div class="info-row"><span style="color:#666;">IP Address</span><span th:text="${ipAddress}">xxx.xxx.xxx.xxx</span></div>
+      <div class="info-row"><span style="color:#666;">Time</span><span th:text="${loginTime}">Today at 10:30 AM</span></div>
+    </div>
+    <div class="warning">&#9888; If this was not you, your account may be compromised. Secure it immediately.</div>
+    <div class="cta">
+      <a th:href="${secureAccountUrl}" class="btn-danger">Secure My Account</a>
+    </div>
+    <p style="font-size:13px;color:#666;">If this was you, you can safely ignore this email.</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>

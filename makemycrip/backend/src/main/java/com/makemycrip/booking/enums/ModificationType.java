@@ -1,0 +1,16 @@
+package com.makemycrip.booking.enums;
+
+public enum ModificationType {
+    GUEST_ADDED,
+    GUEST_REMOVED,
+    GUEST_UPDATED,
+    DATES_CHANGED,
+    ROOM_UPGRADED,
+    SPECIAL_REQUEST_ADDED,
+    EARLY_CHECKIN_APPROVED,
+    LATE_CHECKOUT_APPROVED,
+    NOTES_UPDATED,
+    STATUS_CHANGED,
+    ROOM_ASSIGNED,
+    PRICE_ADJUSTED
+}

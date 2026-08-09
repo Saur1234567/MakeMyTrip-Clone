@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How Was Your Stay?</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .header { background: linear-gradient(135deg, #f57f17, #e65100); padding: 32px 24px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 24px; }
+    .body { padding: 32px 24px; text-align: center; }
+    .stars { font-size: 36px; margin: 16px 0; color: #f9a825; }
+    .btn { display: inline-block; background: #f57f17; color: #fff; padding: 13px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; margin: 20px 0; }
+    .footer { background: #f8f8f8; padding: 20px 24px; text-align: center; font-size: 12px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>&#9733; Share Your Experience</h1></div>
+  <div class="body">
+    <p>Hi <strong th:text="${guestName}">Guest</strong>,</p>
+    <p>We hope you had a wonderful stay at <strong th:text="${hotelName}">Hotel Name</strong>!</p>
+    <p>Your feedback helps millions of travellers make better booking decisions. It only takes 2 minutes.</p>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <a th:href="${reviewUrl}" class="btn">Write a Review</a>
+    <p style="font-size:13px;color:#666;">Booking: <strong th:text="${bookingRef}"></strong> &bull; Check-out: <span th:text="${checkOut}"></span></p>
+    <p style="font-size:12px;color:#aaa;margin-top:24px;">As a thank-you, you'll earn <strong>50 bonus loyalty points</strong> for completing your review!</p>
+  </div>
+  <div class="footer">&copy; 2025 MakeMyCrip. All rights reserved.</div>
+</div>
+</body>
+</html>
